@@ -1,0 +1,1 @@
+const DETAILS_SCREEN = "/details";
