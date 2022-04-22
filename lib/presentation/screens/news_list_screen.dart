@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app_flutter/cubit/news_cubit.dart';
+import 'package:news_app_flutter/cubit/nav/nav_cubit.dart';
+import 'package:news_app_flutter/cubit/news/news_cubit.dart';
 
 class NewsListScreen extends StatefulWidget {
   const NewsListScreen({Key? key}) : super(key: key);
@@ -55,9 +56,8 @@ class _NewsListScreenState extends State<NewsListScreen> {
                     backgroundImage: NetworkImage(article.urlToImage),
                     backgroundColor: Colors.transparent,
                   ),
-                  onTap: () {
-                    // TODO: move on to next screen
-                  },
+                  onTap: () =>
+                      BlocProvider.of<NavCubit>(context).showArticle(article),
                 );
               },
               separatorBuilder: (context, index) => Divider(),
